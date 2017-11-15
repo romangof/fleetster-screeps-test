@@ -10,7 +10,6 @@ var roleBuilder = {
       creep.say('🔄 harvest');
     }
     if (!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-      creep.memory.source = 0
       creep.memory.building = true;
       creep.say('🚧 build');
     }
