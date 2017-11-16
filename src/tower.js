@@ -4,7 +4,7 @@ module.exports = {
   getTowers: () => {
     return Object.keys(Game.structures).map(id => Game.structures[id]).filter(structure => structure.structureType === STRUCTURE_TOWER);
   },
-
+  
   run: (tower) => {
     if (!tower) { return; }
 

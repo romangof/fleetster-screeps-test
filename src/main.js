@@ -44,7 +44,6 @@ module.exports.loop = function () {
   }
 
   // Run towers
-  for (let tower in Tower.getTowers()) {
-    Tower.run(tower);
-  }
+  Tower.getTowers().forEach( tower => Tower.run(tower) );
+
 }

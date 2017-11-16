@@ -1,5 +1,6 @@
 describe("Worker", function() {
   var Worker = require('../src/worker');
+  var Constants = require('../lib/Constants');
   // var Song = require('../../lib/jasmine_examples/Song');
   // var player;
   // var song;
@@ -9,13 +10,9 @@ describe("Worker", function() {
   //   song = new Song();
   // });
   
-  // it("should be able to play a Song", function() {
-  //   player.play(song);
-  //   expect(player.currentlyPlayingSong).toEqual(song);
-
-  //   //demonstrates use of custom matcher
-  //   expect(player).toBePlaying(song);
-  // });
+  it("should return array of body parts", function() {
+    expect(Worker.buildBody(300)).toEqual([Constants.WORK, Constants.CARRY, Constants.MOVE]);
+  });
   // it("should be able to play a Song", function() {
   //   player.play(song);
   //   expect(player.currentlyPlayingSong).toEqual(song);
