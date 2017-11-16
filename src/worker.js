@@ -11,7 +11,7 @@ module.exports = {
   
   buildBody: (resources) => {
     var body = [];
-    var quantity = Math.floor(resources / 200);
+    var quantity = Math.round(resources / 200);
     // var costs = { MOVE: 50, CARRY: 50, WORK: 100 }
     for (var index = 0; index < (quantity*2) + (quantity/2); index++) {
       if (body.length < quantity) {
