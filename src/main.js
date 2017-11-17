@@ -19,15 +19,15 @@ module.exports.loop = function () {
   
   // List workers
   var worker_lists = {
-    harvesters: _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester'),
+    builders: _.filter(Game.creeps, (creep) => creep.memory.role == 'builder'),
     upgraders: _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader'),
-    builders: _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')
+    harvesters: _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')
   }
   
   // Create workers (To be wraped in another loop when there are more spawns)
   for (let worker in worker_lists) {
     if (worker_lists[worker].length < 3) {
-      Worker.create('Spawn1', Worker.buildBody(Game.spawns['Spawn1'].room.energyCapacityAvailable), worker.slice(0, -1));
+      Worker.create('Spawn1', Worker.buildBody(Game.spawns['Spawn1'].room.energyAvailable), worker.slice(0, -1));
     }
   }
   

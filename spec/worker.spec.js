@@ -1,17 +1,11 @@
 describe("Worker", function() {
   var Worker = require('../src/worker');
   var Constants = require('../lib/Constants');
-  // var Song = require('../../lib/jasmine_examples/Song');
-  // var player;
-  // var song;
-
-  // beforeEach(function() {
-  //   player = new Player();
-  //   song = new Song();
-  // });
-  
+ 
   it("should return array of body parts", function() {
     expect(Worker.buildBody(300)).toEqual([Constants.WORK, Constants.CARRY, Constants.MOVE]);
+    expect(Worker.buildBody(550)).toEqual([Constants.WORK, Constants.WORK, Constants.CARRY, Constants.CARRY, Constants.MOVE, Constants.MOVE]);
+    expect(Worker.buildBody(800)).toEqual([Constants.WORK, Constants.WORK, Constants.WORK, Constants.CARRY, Constants.CARRY, Constants.CARRY, Constants.MOVE, Constants.MOVE, Constants.MOVE]);
   });
   // it("should be able to play a Song", function() {
   //   player.play(song);
