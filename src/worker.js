@@ -10,19 +10,13 @@ module.exports = {
   },
   
   buildBody: (resources) => {
-    var body = [];
-    var quantity = Math.round(resources / 200);
-    // var costs = { MOVE: 50, CARRY: 50, WORK: 100 }
-    for (var index = 0; index < (quantity*2) + (quantity/2); index++) {
-      if (body.length < quantity) {
-        body.push(WORK);
-      } else if (body.length < quantity+(quantity/2) ) {
-        body.push(CARRY);
-      } else {
-        body.push(MOVE);
-      }
+    if (resources < 400) {
+      return [WORK, CARRY, MOVE]
+    } else if (resources < 600) {
+      return [WORK, WORK, CARRY, CARRY, MOVE, MOVE]
+    } else {
+      return [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE]
     }
-    return body;
   },
   
   changeRole: (creep, newRole) => {
