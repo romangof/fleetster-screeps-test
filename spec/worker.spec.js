@@ -7,6 +7,8 @@ describe("Worker", function() {
     expect(Worker.buildBody(550)).toEqual([Constants.WORK, Constants.WORK, Constants.CARRY, Constants.CARRY, Constants.MOVE, Constants.MOVE]);
     expect(Worker.buildBody(800)).toEqual([Constants.WORK, Constants.WORK, Constants.WORK, Constants.CARRY, Constants.CARRY, Constants.CARRY, Constants.MOVE, Constants.MOVE, Constants.MOVE]);
   });
+
+  // Jasmine Sample
   // it("should be able to play a Song", function() {
   //   player.play(song);
   //   expect(player.currentlyPlayingSong).toEqual(song);
