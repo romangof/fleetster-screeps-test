@@ -1,4 +1,4 @@
-var Worker = require('worker');
+const Worker = require('worker');
 
 module.exports = {
   /** @param {Creep} creep **/

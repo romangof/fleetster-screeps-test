@@ -1,23 +1,16 @@
 {
   "name": "fleetster-screeps-test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jasmine"
-  },
+  "version": "2.0.0",
+  "description": "Screeps new challenge 2019",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romangof/fleetster-screeps-test.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Roman",
+  "license": "unlicensed",
   "bugs": {
     "url": "https://github.com/romangof/fleetster-screeps-test/issues"
   },
-  "homepage": "https://github.com/romangof/fleetster-screeps-test#readme",
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "jasmine": "^2.8.0"
-  }
+  "homepage": "https://github.com/romangof/fleetster-screeps-test#readme"
 }
