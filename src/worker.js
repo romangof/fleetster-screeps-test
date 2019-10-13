@@ -13,7 +13,9 @@ module.exports = {
     buildBody: resources => {
         if (resources < 400) {
             return [WORK, CARRY, MOVE];
-        } if (resources < 600) {
+        }
+
+        if (resources < 600) {
             return [WORK, WORK, CARRY, CARRY, MOVE, MOVE];
         }
 

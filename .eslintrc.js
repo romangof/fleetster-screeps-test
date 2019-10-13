@@ -21,6 +21,12 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
     },
+    globals: {
+        _: true,
+        Game: true,
+        Memory: true,
+        ...globals,
+    },
     rules: {
         "no-console": "off",
         'no-extra-parens': [
@@ -329,11 +335,5 @@ module.exports = {
             'error',
             'outside'
         ]
-    },
-    'globals': {
-        _: true,
-        Game: true,
-        Memory: true,
-        ...globals,
     }
 };

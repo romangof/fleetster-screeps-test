@@ -35,6 +35,21 @@ function createWorkers(workerLists) {
     }
 }
 
+function createRoad(room, path) {
+    room.visual.poly(path, { stroke: '#00ff00', lineStyle: 'dashed', strokeWidth: 0.15 });
+
+    _.forEach(path, pathCoordinates => room.createConstructionSite(pathCoordinates.x, pathCoordinates.y, STRUCTURE_ROAD));
+}
+
+function createCommonRoads(room) {
+    const sources = room.find(FIND_SOURCES_ACTIVE, source => ({ pos: source.pos, range: 1 }));
+    const controllerPath = room.findPath(Game.spawns.Spawn1.pos, room.controller.pos, { range: 1, ignoreCreeps: true });
+
+    const paths = [controllerPath, ..._.map(sources, source => room.findPath(Game.spawns.Spawn1.pos, source.pos, { range: 1, ignoreCreeps: true }))];
+
+    _.forEach(paths, path => createRoad(room, path));
+}
+
 module.exports.loop = function() {
     cleanMemory();
 
@@ -47,6 +62,8 @@ module.exports.loop = function() {
 
     // Create workers (To be wraped in another loop when there are more spawns)
     createWorkers(workerLists);
+
+    createCommonRoads(_.first(Object.values(Game.rooms)));
 
     // Run creeps per role
     _.forEach(Object.keys(Game.creeps), name => {
