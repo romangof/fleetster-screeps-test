@@ -1,19 +1,20 @@
-module.exports = function (grunt) {
+// eslint-disable-next-line import/no-unresolved
+import config from './.screeps.json';
 
-  var config = require('./.screeps.json')
-  grunt.loadNpmTasks('grunt-screeps');
+module.exports = grunt => {
+    grunt.loadNpmTasks('grunt-screeps');
 
-  grunt.initConfig({
-    screeps: {
-      options: {
-        email: config.email,
-        password: config.password,
-        branch: config.branch,
-        ptr: config.ptr
-      },
-      dist: {
-        src: ['src/*.js']
-      }
-    }
-  });
-}
+    grunt.initConfig({
+        screeps: {
+            options: {
+                email:    config.email,
+                password: config.password,
+                branch:   config.branch,
+                ptr:      config.ptr,
+            },
+            dist: {
+                src: ['src/*.js'],
+            },
+        },
+    });
+};
