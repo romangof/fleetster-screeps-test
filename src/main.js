@@ -43,7 +43,7 @@ function createRoad(room, path) {
 
 function createCommonRoads(room) {
     const sources = room.find(FIND_SOURCES_ACTIVE, source => ({ pos: source.pos, range: 1 }));
-    const controllerPath = room.findPath(Game.spawns.Spawn1.pos, room.controller.pos, { range: 1, ignoreCreeps: true });
+    const controllerPath = room.findPath(Game.spawns.Spawn1.pos, room.controller.pos, { range: 2, ignoreCreeps: true });
 
     const paths = [controllerPath, ..._.map(sources, source => room.findPath(Game.spawns.Spawn1.pos, source.pos, { range: 1, ignoreCreeps: true }))];
 
