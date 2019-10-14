@@ -63,7 +63,10 @@ module.exports.loop = function() {
     // Create workers (To be wraped in another loop when there are more spawns)
     createWorkers(workerLists);
 
+    // TODO: store path in memory
     createCommonRoads(_.first(Object.values(Game.rooms)));
+
+    // TODO: createExtensions()
 
     // Run creeps per role
     _.forEach(Object.keys(Game.creeps), name => {

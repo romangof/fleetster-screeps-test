@@ -13,6 +13,8 @@ module.exports = {
             creep.say('🚧 build');
         }
 
+        // TODO: add repair
+
         if (creep.memory.building) {
             const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 
