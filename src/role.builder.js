@@ -13,17 +13,31 @@ module.exports = {
             creep.say('🚧 build');
         }
 
-        // TODO: add repair
+        // TODO: make this nicer
 
         if (creep.memory.building) {
-            const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            const toBuild = creep.room.find(FIND_CONSTRUCTION_SITES);
 
-            if (targets.length) {
-                if (creep.build(targets[0]) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+            if (toBuild.length) {
+                if (creep.build(toBuild[0]) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(toBuild[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             } else {
-                Worker.upgrade(creep);
+
+                const toRepair = creep.room.find(FIND_STRUCTURES, {
+                    filter: object => object.hits < object.hitsMax
+                });
+                
+                // should I sort?
+                toRepair.sort((a,b) => a.hits - b.hits);
+                
+                if(toRepair.length > 0) {
+                    if(creep.repair(toRepair[0]) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(toRepair[0]);
+                    }
+                } else {
+                    Worker.upgrade(creep);
+                }
             }
         } else {
             Worker.harvest(creep);

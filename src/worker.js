@@ -11,6 +11,7 @@ module.exports = {
     },
 
     buildBody: resources => {
+        // TODO: this can grow up to 50, need to improve this based on the current energy
         if (resources < 400) {
             return [WORK, CARRY, MOVE];
         }
