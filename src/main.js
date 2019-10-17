@@ -7,6 +7,10 @@ const Worker = require('./worker');
 const role = { builder, harvester, upgrader };
 
 function cleanMemory() {
+    if (!Memory.creeps) {
+        return;
+    }
+
     Object.keys(Memory.creeps).forEach(name => {
         if (!Game.creeps[name]) {
             delete Memory.creeps[name];

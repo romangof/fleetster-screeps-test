@@ -23,16 +23,15 @@ module.exports = {
                     creep.moveTo(toBuild[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             } else {
-
                 const toRepair = creep.room.find(FIND_STRUCTURES, {
-                    filter: object => object.hits < object.hitsMax
+                    filter: object => object.hits < object.hitsMax,
                 });
-                
+
                 // should I sort?
-                toRepair.sort((a,b) => a.hits - b.hits);
-                
-                if(toRepair.length > 0) {
-                    if(creep.repair(toRepair[0]) == ERR_NOT_IN_RANGE) {
+                toRepair.sort((a, b) => a.hits - b.hits);
+
+                if (toRepair.length > 0) {
+                    if (creep.repair(toRepair[0]) === ERR_NOT_IN_RANGE) {
                         creep.moveTo(toRepair[0]);
                     }
                 } else {
