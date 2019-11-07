@@ -1,4 +1,4 @@
-# Roman Screeps Project
+# Screeps Game
 
 Fun real coding game  
 This started as my coding challenge when joining fleetster but is now more of a hobby.  
